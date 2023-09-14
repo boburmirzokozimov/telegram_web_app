@@ -1,9 +1,9 @@
 <script setup>
-import {Head, usePage} from "@inertiajs/vue3";
+import {Head} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
 
-const page = usePage();
 const toaster = createToaster({ /* options */});
+
 </script>
 
 <template>
@@ -15,11 +15,9 @@ const toaster = createToaster({ /* options */});
         >
     </Head>
 
-    <section class="w-[1500px] 2xl:max-w-7xl xl:max-w-6xl lg:max-w-4xl mx-auto p-6 text-center">
-        <div class="">
-            <slot/>
-        </div>
-    </section>
+    <div class="">
+        <slot/>
+    </div>
 
 </template>
 
