@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+    --tg-color-scheme: light;
+    --tg-theme-bg-color: #ffffff;
+    --tg-theme-text-color: #000000;
+    --tg-theme-hint-color: #707579;
+    --tg-theme-link-color: #3390ec;
+    --tg-theme-button-color: #3390ec;
+    --tg-theme-button-text-color: #ffffff;
+    --tg-theme-secondary-bg-color: #f4f4f5;
+    --tg-viewport-height: 653px;
+    --tg-viewport-stable-height: 653px;
+}
+
+.tg-theme-text-color {
+    color: var(--tg-theme-text-color)
+}
+
+.tg-theme-hint-color {
+    color: var(--tg-theme-hint-color)
+}
+
+.tg-theme-link-color {
+    color: var(--tg-theme-link-color)
+}
+
+.tg-theme-bg-color {
+    background: var(--tg-theme-link-color)
+}

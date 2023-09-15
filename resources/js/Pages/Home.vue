@@ -1,7 +1,6 @@
 <script setup>
 
 import {onMounted} from "vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
 
 const tg = window.Telegram.WebApp
 
@@ -14,9 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <PrimaryButton @click="handleClose">Close</PrimaryButton>
-
-    <div class="text-center py-4 text-white bg-black">Hello</div>
+    <div class="text-center py-4 tg-theme-text-color">Welcome back,{{ tg.initDataUnsafe?.user?.username }}</div>
 </template>
 
 <style lang="scss" scoped>

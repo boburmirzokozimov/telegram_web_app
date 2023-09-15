@@ -1,6 +1,7 @@
 <script setup>
 import {Head} from "@inertiajs/vue3";
 import {createToaster} from "@meforma/vue-toaster";
+import Header from "@/Components/Header.vue";
 
 const toaster = createToaster({ /* options */});
 
@@ -15,9 +16,14 @@ const toaster = createToaster({ /* options */});
         >
     </Head>
 
-    <div class="">
+    <section class="tg-bg-color">
+        <nav class="w-5/6 mx-auto">
+            <Header/>
+        </nav>
+    </section>
+    <section class="w-4/6 mx-auto mt-2">
         <slot/>
-    </div>
+    </section>
 
 </template>
 
@@ -25,6 +31,10 @@ const toaster = createToaster({ /* options */});
 .header-left {
     @apply flex items-center relative;
     transition: 1s ease all;
+}
+
+.tg-bg-color {
+    background: var(--tg-theme-button-color);
 }
 
 .popup {

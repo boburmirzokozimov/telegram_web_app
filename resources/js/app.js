@@ -7,7 +7,6 @@ import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
 import {InertiaProgress} from "@inertiajs/progress";
 import Layout from "@/Shared/Layout.vue";
 
-
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({

@@ -12,6 +12,10 @@
 */
 
 use App\Http\Controllers\BaseController;
+use App\Http\Controllers\BasketController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', BaseController::class);
+Route::get('/products', ProductsController::class);
+Route::get('/basket', BasketController::class);

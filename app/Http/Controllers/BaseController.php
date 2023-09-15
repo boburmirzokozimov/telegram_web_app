@@ -8,6 +8,6 @@ class BaseController extends Controller
 {
     public function __invoke()
     {
-        return Inertia::render('Hello');
+        return Inertia::render('Home');
     }
 }
