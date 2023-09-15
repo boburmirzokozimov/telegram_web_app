@@ -19,7 +19,7 @@ class Handler extends WebhookHandler
                 'username' => $credentials['username'],
             ]);
         Auth::login($client);
-      
+        session()->start();
         $this->reply('Click Menu Button');
     }
 }
