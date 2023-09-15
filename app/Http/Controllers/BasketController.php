@@ -2,24 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateBasketRequest;
 use App\Models\Basket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Inertia\Inertia;
 
 class BasketController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function index(Request $request)
     {
-
-        $product = $request->validate([
-            'product_id' => 'exists:products,id',
-            'user_id' => 'int',
+        dd(Auth::user());
+        return Inertia::render('Basket/Index')->with([
+//            'basket' => Basket::query()->where('client_id', $request->client_id)->get(),
         ]);
+    }
 
+    public function store(CreateBasketRequest $request)
+    {
+        Log::info($request->validated());
         Basket::query()
-            ->create($product);
+            ->create($request->validated());
 
         return back();
     }

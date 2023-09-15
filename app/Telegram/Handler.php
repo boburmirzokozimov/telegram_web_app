@@ -2,16 +2,24 @@
 
 namespace App\Telegram;
 
+use App\Models\Client;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
+use Illuminate\Support\Facades\Auth;
 
 class Handler extends WebhookHandler
 {
-    public function hello(): void
+    public function start(): void
     {
-//        Log::info(json_encode($this->message->toArray(), JSON_UNESCAPED_UNICODE));
-//        Telegraph::message('hello world')
-//            ->keyboard(Keyboard::make()->buttons([
-//                Button::make("👀 Open")->url('https://387f-93-171-226-6.ngrok-free.app/'),
-//            ]))->send();
+        $credentials = $this->request['message']['from'];
+        $client = Client::query()
+            ->firstOrCreate([
+                'id' => $credentials['id'],
+                'first_name' => $credentials['first_name'],
+                'last_name' => $credentials['last_name'],
+                'username' => $credentials['username'],
+            ]);
+        Auth::login($client);
+      
+        $this->reply('Click Menu Button');
     }
 }

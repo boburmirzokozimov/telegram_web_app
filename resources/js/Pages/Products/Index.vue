@@ -2,18 +2,32 @@
 
 import Paginator from "@/Components/Paginator.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import {createToaster} from "@meforma/vue-toaster";
+import {router} from "@inertiajs/vue3";
+
+const toaster = createToaster({ /* options */});
+const tg = window.Telegram.WebApp
 
 defineProps({
     products: Object
 })
-
+const handleAddButton = (product_id) => {
+    router.post('/basket', {
+        product_id: product_id,
+        client_id: tg.initDataUnsafe?.user?.id
+    }, {
+        onSuccess: () => toaster.success('Successfully added')
+    })
+}
 </script>
 
 <template>
     <div class="grid grid-cols-1 gap-y-5">
         <div v-for="product in products.data" class="relative">
             <div class="tg-theme-text-color  btn_add ">
-                <PrimaryButton style="transform: translateX(-100%)">
+                <PrimaryButton
+                    style="transform: translateX(-100%)"
+                    @click="()=>handleAddButton(product.id)">
                     <i class="fa fa-plus"></i>
                 </PrimaryButton>
             </div>

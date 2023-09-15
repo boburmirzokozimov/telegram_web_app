@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', BaseController::class);
 Route::get('/products', ProductsController::class);
-Route::get('/basket', BasketController::class);
+Route::post('/basket', [BasketController::class, 'store']);
+Route::get('/basket', [BasketController::class, 'index']);
